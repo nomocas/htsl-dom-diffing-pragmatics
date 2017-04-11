@@ -1,51 +1,51 @@
-# ES6 module boilerplate with full ES6 test suits and coverage
+# babelute-html-dom-diffing-pragmatics
 
-Largely inspired from https://istanbul.js.org/docs/tutorials/es2015/ and https://github.com/bcoe/es2015-coverage. Added : rollup bundling and karma runner + clean and complete.
+Dom Diffing Engine for babelute-html-lexicon.
 
-- ES6 sources
-- transpiled with [babel](https://babeljs.io) (to dist/es5/*)
-- bundled with [rollup](https://github.com/rollup/rollup) (to dist/bundles/*)
-- ES6 tests with [mocha](https://mochajs.org) and [chai](http://chaijs.com/) (runned directly from es6 with [babel-register](https://babeljs.io/docs/usage/babel-register/))
-- [karma](http://karma-runner.github.io) runner with on-the-fly rollup/babel bundling
-- Code coverage with [istanbul](https://istanbul.js.org/) and [nyc](https://github.com/istanbuljs/nyc) directly from ES6 tests and sources (no bundle)
+- __One of the lightest__ modern pure js html lib avaiable (around 4Ko gzipped with dependencies) 
+- __One of the fastest DOM diffing engine__ (fastest than Mithril in chrome and firefox - several times faster than React)
+- Immutables based comparison. 
+- Algo that will show excellent behaviour when scalling. More components you have, more optimisation happend.
+- Play really well with other libs (redux, immutables, jquery, ...).
+- Simple and easy to understand algorithm. No more esoteric interpretation. You are the master.
 
-- [eslint](http://eslint.org) ES6 base config for src and test
+
+Should be used in conjonction with [babelute-html-lexicon](https://github.com/nomocas/babelute-html-lexicon).
+
+Write sentences with lexicon. Interpret them with this pragmatics.
 
 ## Usage
 
-clone this repo then :
+
+```javascript
+import htmlLexicon from 'babelute-html-lexicon';
+import differ from 'babelute-html-dom-diffing-lexicon';
+
+const h = htmlLexicon.initializer();
+function render(state) {
+	return h.section(
+		h.class('my-class')
+		.h1(state.title)
+		.div(h.id('my-id'), state.content)
+		.button('fire !', h.click(state.handler))
+	);
+}
+
+const $root = document.getElementById('...');
+let oldBabelute,
+	state = { title:'...', content:'...', handler:(e) => console.log('bouh', e) };
+oldBabelute = render(state).$render($root); // first render
+
+...
+
+state = { title:'...', content:'...', handler:... };
+oldBabelute = render(state).$render($root, oldBabelute); // dif
+
+...
+
+oldBabelute.$remove($root);  // remove
 
 ```
-> npm i
-```
-
-then :
-
-- build : `> npm run build`
-- test :  `> mocha` or `> npm test`
-- karma : `> npm run karma`
-- cover : `> npm run cover`
-- es5-watch : `> npm run es5-watch`
-- bundles-watch : `> npm run bundles-watch`
-
-
-Don't forget to change :
-- package.json : infos (Module name, author, etc)
-- karma.conf.js and rollup.config.js : change __MY__PROJECT__ to the UMD module name of your choice
-
-## Produced outputs
-
-- dist/es5/* : commonjs unbundled files (transpiled with babel)
-- dist/bundles/index.js : umd module
-- dist/bundles/index.min.js : umd module minified with uglifyjs
-- dist/bundles/index.mjs : ES module
-
-## Bundling with third party libs
-
-If you want to do so (for UMD modules either for distribution or karma tests), you should use :
-- [rollup-plugin-node-resolve](https://github.com/rollup/rollup-plugin-node-resolve)
-- [rollup-plugin-commonjs](https://github.com/rollup/rollup-plugin-commonjs)
-
 
 ## Licence
 
