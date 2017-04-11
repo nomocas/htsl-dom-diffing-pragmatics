@@ -1,5 +1,14 @@
 # babelute-html-dom-diffing-pragmatics
 
+[![Travis branch](https://img.shields.io/travis/nomocas/babelute-html-dom-diffing-pragmatics/master.svg)](https://travis-ci.org/nomocas/babelute-html-dom-diffing-pragmatics)
+[![bitHound Overall Score](https://www.bithound.io/github/nomocas/babelute-html-dom-diffing-pragmatics/badges/score.svg)](https://www.bithound.io/github/nomocas/babelute-html-dom-diffing-pragmatics)
+[![npm](https://img.shields.io/npm/v/babelute-html-dom-diffing-pragmatics.svg)]()
+[![npm-downloads](https://img.shields.io/npm/dm/babelute-html-dom-diffing-pragmatics.svg)]()
+[![licence](https://img.shields.io/npm/l/babelute-html-dom-diffing-pragmatics.svg)](https://spdx.org/licenses/MIT)
+[![dependecies](https://img.shields.io/david/nomocas/babelute-html-dom-diffing-pragmatics.svg)]()
+[![dev-dependencies](https://img.shields.io/david/dev/nomocas/babelute-html-dom-diffing-pragmatics.svg)]()
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
 Dom Diffing Engine for babelute-html-lexicon.
 
 - __One of the lightest__ modern pure js html lib avaiable (around 4Ko gzipped with dependencies) 
