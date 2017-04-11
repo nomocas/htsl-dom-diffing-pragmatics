@@ -35,7 +35,7 @@
   "dependencies": {
     "babelute": "^0.4.3",
     "babelute-html-lexicon": "*",
-    "nomocas-webutils": "^0.0.4"
+    "nomocas-webutils": "^0.0.7"
   },
   "devDependencies": {
     "assert": "^1.4.1",
