@@ -4,7 +4,7 @@ import chai from 'chai';
 // const expect = chai.expect; 
 chai.should();
 
-describe('CoverageBabel', () => {
+describe('dom-diffing tests', () => {
 	it('returns hello world message', () => {
 	});
 
