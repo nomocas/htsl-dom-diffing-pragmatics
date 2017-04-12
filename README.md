@@ -24,11 +24,14 @@ Should be used in conjonction with [babelute-html-lexicon](https://github.com/no
 Write sentences with lexicon. Interpret them with this pragmatics.
 
 ## Usage
+```
+> yarn i babelute babelute-html-lexicon babelute-html-dom-diffing-pragmatics
+```
 
 
 ```javascript
 import htmlLexicon from 'babelute-html-lexicon';
-import differ from 'babelute-html-dom-diffing-lexicon';
+import 'babelute-html-dom-diffing-lexicon';
 
 const h = htmlLexicon.initializer();
 function render(state) {
