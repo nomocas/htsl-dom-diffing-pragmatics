@@ -33,7 +33,7 @@
   "author": "Gilles Coomans",
   "license": "MIT",
   "dependencies": {
-    "babelute": "^0.4.3",
+    "babelute": "^0.5.0",
     "babelute-html-lexicon": "^0.2.3",
     "nomocas-webutils": "^0.0.7"
   },
