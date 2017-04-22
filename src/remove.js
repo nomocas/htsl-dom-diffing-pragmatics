@@ -56,7 +56,7 @@ const removeActions = {
 	},
 	tag($tag, lexem) {
 		const babelutes = lexem.args[1],
-			len = babelutes.length;
+			len = babelutes && babelutes.length || 0;
 		for (let i = 0; i < len; ++i)
 			seekAndUnmountComponent(babelutes[i]);
 		$tag.removeChild(lexem.child);
