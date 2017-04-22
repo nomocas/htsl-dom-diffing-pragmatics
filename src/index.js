@@ -16,7 +16,7 @@ import { render, renderActions } from './render';
 import { mountComponentInstance } from './component';
 import './container';
 
-import htmlLexicon from 'babelute-html-lexicon'; // external
+import htmlLexicon from 'htsl-lexicon'; // external
 
 htmlLexicon.addAliases({
 	$render(domElement, oldBabelute = null, component = null) {
@@ -44,7 +44,7 @@ htmlLexicon.addAliases({
  * @type {Pragmatics}
  * @todo  addTargetLexicon(lexicon) => catch name for _targets + store lexicon reference for one level developement : no more need to register lexicons globally
  * @example
- * import difPragmas from 'babelute-html-dom-diffing-pragmatics';
+ * import difPragmas from 'htsl-dom-diffing-pragmatics';
  * import htmlLexicon from 'babelute-hstml/src/html-lexicon.js';
  *
  * const h = htmlLexicon.initializer(true); // FirtsLevel initializer

@@ -644,9 +644,9 @@ babelrc-rollup@^3.0.0:
   dependencies:
     resolve "^1.1.7"
 
-babelute-html-lexicon@*:
+htsl-lexicon@*:
   version "0.2.3"
-  resolved "https://registry.yarnpkg.com/babelute-html-lexicon/-/babelute-html-lexicon-0.2.3.tgz#a24adc297ccb4c51947fce259a69f875685a7b30"
+  resolved "https://registry.yarnpkg.com/htsl-lexicon/-/htsl-lexicon-0.2.3.tgz#a24adc297ccb4c51947fce259a69f875685a7b30"
   dependencies:
     babelute "^0.4.3"
     nomocas-webutils "0.0.7"
