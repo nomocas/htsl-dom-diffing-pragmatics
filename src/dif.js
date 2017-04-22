@@ -137,18 +137,19 @@ const difActions = {
 			obabelutes = olexem.args[1];
 
 		let babelute, obabelute;
-		for (let i = 0, len = babelutes.length; i < len; i++) {
-			// render all children's babelutes
-			babelute = babelutes[i];
-			obabelute = obabelutes[i];
-			if (babelute === obabelute)
-				continue;
-			if (typeof babelute === 'undefined') // cast undefined to empty string
-				babelute = '';
-			if (!babelute || !babelute.__babelute__)
-				babelute = babelutes[i] = new bbl.Babelute()._append('html', 'text', [babelute]);
-			dif(lexem.child, babelute, obabelute, component);
-		}
+		if (babelutes)
+			for (let i = 0, len = babelutes.length; i < len; i++) {
+				// render all children's babelutes
+				babelute = babelutes[i];
+				obabelute = obabelutes[i];
+				if (babelute === obabelute)
+					continue;
+				if (typeof babelute === 'undefined') // cast undefined to empty string
+					babelute = '';
+				if (!babelute || !babelute.__babelute__)
+					babelute = babelutes[i] = new bbl.Babelute()._append('html', 'text', [babelute]);
+				dif(lexem.child, babelute, obabelute, component);
+			}
 	},
 
 	text($tag, lexem, olexem) {
