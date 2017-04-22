@@ -91,7 +91,8 @@ function seekAndUnmountComponent(babelute) {
 				removeActions.onDom(lexem.$tag, lexem/*, component*/);
 			else if (lexem.instance) { // component, postalComponent and container
 				instance = lexem.instance;
-				seekAndUnmountComponent(instance.developed);
+				if (instance.developed)
+					seekAndUnmountComponent(instance.developed);
 				instance.componentWillUnmount && (instance.componentWillUnmount(), instance.componentDidUnmount()); // if we have one we have both
 			} else if (lexem.developed) // compounds and if, router 
 				seekAndUnmountComponent(lexem.developed);
