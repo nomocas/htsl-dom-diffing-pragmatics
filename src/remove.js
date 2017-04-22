@@ -39,7 +39,7 @@ const removeActions = {
 	on($tag, lexem) {
 		$tag.removeEventListener(lexem.args[0], lexem.listener);
 	},
-	onDom($tag, lexem /* render, dif, remove */, component ) {
+	onDom($tag, lexem /* render, dif, remove */ , component) {
 		const remove = lexem.args[2];
 		if (remove)
 			remove($tag, lexem, component);
@@ -88,7 +88,7 @@ function seekAndUnmountComponent(babelute) {
 			else if (lexem.name === 'tag')
 				seekAndUnmountComponentInArray(lexem.args[1]);
 			else if (lexem.name === 'onDom')
-				removeActions.onDom(lexem.$tag, lexem/*, component*/);
+				removeActions.onDom(lexem.$tag, lexem /*, component*/ );
 			else if (lexem.instance) { // component, postalComponent and container
 				instance = lexem.instance;
 				if (instance.developed)
