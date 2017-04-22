@@ -57,14 +57,15 @@ const renderActions = {
 		lexem.child = document.createElement(lexem.args[0]);
 		(frag || $tag).appendChild(lexem.child);
 		const babelutes = lexem.args[1];
-		for (let i = 0, len = babelutes.length, babelute; i < len; ++i) {
-			babelute = babelutes[i];
-			if (typeof babelute === 'undefined') // cast undefined to '' to keep track of node for diffing
-				babelute = '';
-			if (!babelute || !babelute.__babelute__) // text node
-				babelute = babelutes[i] = new bbl.Babelute()._append('html', 'text', [babelute]);
-			render(lexem.child, babelute, component);
-		}
+		if (babelutes)
+			for (let i = 0, len = babelutes.length, babelute; i < len; ++i) {
+				babelute = babelutes[i];
+				if (typeof babelute === 'undefined') // cast undefined to '' to keep track of node for diffing
+					babelute = '';
+				if (!babelute || !babelute.__babelute__) // text node
+					babelute = babelutes[i] = new bbl.Babelute()._append('html', 'text', [babelute]);
+				render(lexem.child, babelute, component);
+			}
 	},
 
 	text($tag, lexem, component, frag) {
