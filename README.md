@@ -2,8 +2,8 @@
 
 [![Travis branch](https://img.shields.io/travis/nomocas/htsl-dom-diffing-pragmatics/master.svg)](https://travis-ci.org/nomocas/htsl-dom-diffing-pragmatics)
 [![bitHound Overall Score](https://www.bithound.io/github/nomocas/htsl-dom-diffing-pragmatics/badges/score.svg)](https://www.bithound.io/github/nomocas/htsl-dom-diffing-pragmatics)
-[![dependecies](https://img.shields.io/david/nomocas/htsl-dom-diffing-pragmatics.svg)]()
-[![dev-dependencies](https://img.shields.io/david/dev/nomocas/htsl-dom-diffing-pragmatics.svg)]()
+[![bitHound Dependencies](https://www.bithound.io/github/nomocas/htsl-dom-diffing-pragmatics/badges/dependencies.svg)](https://www.bithound.io/github/nomocas/htsl-dom-diffing-pragmatics/master/dependencies/npm)
+[![bitHound Dev Dependencies](https://www.bithound.io/github/nomocas/htsl-dom-diffing-pragmatics/badges/devDependencies.svg)](https://www.bithound.io/github/nomocas/htsl-dom-diffing-pragmatics/master/dependencies/npm)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![npm](https://img.shields.io/npm/v/htsl-dom-diffing-pragmatics.svg)]()
 [![licence](https://img.shields.io/npm/l/htsl-dom-diffing-pragmatics.svg)](https://spdx.org/licenses/MIT)
