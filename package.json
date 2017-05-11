@@ -33,7 +33,7 @@
   "author": "Gilles Coomans",
   "license": "MIT",
   "dependencies": {
-    "babelute": "^0.5.0",
+    "babelute": "^0.6.0",
     "htsl-lexicon": "^0.2.3",
     "nomocas-webutils": "^0.0.7"
   },
@@ -47,7 +47,7 @@
     "babel-register": "^6.14.0",
     "babelrc-rollup": "^3.0.0",
     "chai": "^3.5.0",
-    "cross-env": "^4.0.0",
+    "cross-env": "^5.0.0",
     "eslint": "^3.15.0",
     "eslint-plugin-import": "^2.2.0",
     "karma": "^1.4.1",
@@ -63,6 +63,6 @@
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-watch": "^3.2.2",
     "standard-version": "^4.0.0",
-    "uglify-js": "^2.7.5"
+    "uglify-js": "^3.0.3"
   }
 }

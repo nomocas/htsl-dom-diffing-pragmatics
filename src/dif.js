@@ -266,8 +266,9 @@ const difActions = {
 		const newHTML = lexem.args[0];
 		lexem.witness = olexem.witness;
 		if (olexem.args[0] !== newHTML) {
-			olexem.html && olexem.html.forEach((child) => $tag.removeChild(child));
-			lexem.html = insertHTML(newHTML, $tag, lexem.witness);
+			$tag.innerHTML = '';
+			$tag.appendChild(lexem.witness);
+			insertHTML(newHTML, $tag, lexem.witness);
 		}
 	},
 	execute($tag, lexem, olexem) {

@@ -105,7 +105,7 @@ const renderActions = {
 			onRender($tag, lexem, component, frag);
 	},
 	html($tag, lexem) {
-		lexem.html = insertHTML(lexem.args[0], $tag);
+		insertHTML(lexem.args[0], $tag);
 		lexem.witness = document.createComment('html');
 		$tag.appendChild(lexem.witness);
 	},

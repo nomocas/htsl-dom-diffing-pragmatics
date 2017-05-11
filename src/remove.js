@@ -44,9 +44,8 @@ const removeActions = {
 		if (remove)
 			remove($tag, lexem, component);
 	},
-	html($tag, lexem) {
-		if (lexem.html)
-			lexem.html.forEach((child) => $tag.removeChild(child));
+	html($tag) {
+		$tag.innerHTML = '';
 	},
 	text($tag, lexem) {
 		$tag.removeChild(lexem.child);
