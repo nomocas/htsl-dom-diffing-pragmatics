@@ -48,7 +48,7 @@ const removeActions = {
 		$tag.innerHTML = '';
 	},
 	text($tag, lexem) {
-		$tag.removeChild(lexem.child);
+		lexem.child.parentNode && lexem.child.parentNode.removeChild(lexem.child);
 	},
 	each($tag, lexem, component) {
 		lexem.children.forEach((child) => remove($tag, child, component));
@@ -58,7 +58,7 @@ const removeActions = {
 			len = babelutes && babelutes.length || 0;
 		for (let i = 0; i < len; ++i)
 			seekAndUnmountComponent(babelutes[i]);
-		$tag.removeChild(lexem.child);
+		lexem.child.parentNode && lexem.child.parentNode.removeChild(lexem.child);
 	}
 };
 
@@ -72,8 +72,8 @@ function remove($tag, babelute, component) {
 		else if (lexem.developed) // compounds and if
 			remove($tag, lexem.developed, component);
 
-		if (lexem.witness) // if, each, component
-			$tag.removeChild(lexem.witness);
+		if (lexem.witness && lexem.witness.parentNode) // if, each, component
+			lexem.witness.parentNode.removeChild(lexem.witness);
 	}
 }
 
