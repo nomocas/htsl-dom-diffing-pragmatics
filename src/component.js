@@ -10,11 +10,13 @@ import { remove, removeActions, seekAndUnmountComponent } from './remove';
 
 // lexem : .component(Component, props)
 
+// RENDER PRAGMA
 renderActions.component = function($tag, lexem, parent, frag) {
 	const instance = lexem.instance = new(lexem.args[0])(lexem.args[1], parent);
 	mountComponentInstance($tag, instance, true, frag);
 };
 
+// DIF PRAGMA
 difActions.component = function($tag, lexem, olexem) {
 	if (lexem.args[0] !== olexem.args[0])
 		throw new Error('You must not change component\'s class when rerendering');
@@ -23,12 +25,15 @@ difActions.component = function($tag, lexem, olexem) {
 		lexem.instance.setProps(lexem.args[1]);
 };
 
+// REMOVE PRAGMA
 removeActions.component = function($tag, lexem) {
 	lexem.instance.unmount();
 	$tag.removeChild(lexem.instance.witness);
 };
 
 function mountComponentInstance($tag, instance, addWitness, frag) {
+
+	// Pragmas dependent render hook
 	instance._render = function() {
 		// update
 		const developed = this.render(true);
@@ -39,6 +44,7 @@ function mountComponentInstance($tag, instance, addWitness, frag) {
 		this.developed = developed;
 	};
 
+	// Pragmas dependent remove hook
 	instance._remove = function() {
 		// unmount
 		seekAndUnmountComponent(this.developed); // depth-first
