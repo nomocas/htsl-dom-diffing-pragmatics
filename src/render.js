@@ -6,7 +6,7 @@
  */
 
 import bbl from 'babelute';
-import { insertHTML } from 'nomocas-webutils/lib/dom-utils';
+import domUtils from 'nomocas-webutils/lib/dom-utils';
 import _targets from './targets';
 
 const renderActions = {
@@ -97,6 +97,29 @@ const renderActions = {
 		$tag.appendChild(lexem.witness);
 	},
 
+	keyedEach($tag, lexem, component, frag) {
+		const items = lexem.args[1],
+			keyName = lexem.args[1],
+			renderer = lexem.args[2],
+			newDico = lexem.dico = {},
+			children = lexem.children = [];
+
+		let i = 0,
+			key, newdeveloped;
+
+		for (let len = items.length, item; i < len; ++i) {
+			key = item[keyName];
+			newdeveloped = renderer(item);
+			children.push(newdeveloped);
+			render($tag, newdeveloped, component, frag);
+			newDico[key] = newdeveloped;
+			newdeveloped.index = i;
+			newdeveloped.lastChild = $tag.lastChild;
+		}
+		// lexem.witness = document.createComment('keyedEach');
+		// $tag.appendChild(lexem.witness);
+	},
+
 	// custom output
 	onDom($tag, lexem, component, frag /* args = render, dif, remove */ ) {
 		const onRender = lexem.args[0];
@@ -105,7 +128,7 @@ const renderActions = {
 			onRender($tag, lexem, component, frag);
 	},
 	html($tag, lexem) {
-		insertHTML(lexem.args[0], $tag);
+		domUtils.insertHTML(lexem.args[0], $tag);
 		lexem.witness = document.createComment('html');
 		$tag.appendChild(lexem.witness);
 	},

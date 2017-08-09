@@ -35,7 +35,7 @@
   "dependencies": {
     "babelute": "^0.6.0",
     "htsl-lexicon": "^0.2.3",
-    "nomocas-webutils": "^0.0.8"
+    "nomocas-webutils": "^0.0.9"
   },
   "devDependencies": {
     "assert": "^1.4.1",

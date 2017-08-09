@@ -8,10 +8,11 @@
  */
 
 import bbl from 'babelute';
-import { insertHTML } from 'nomocas-webutils/lib/dom-utils';
+import domUtils from 'nomocas-webutils/lib/dom-utils';
 import { render, renderActions } from './render';
 import { remove } from './remove';
 import _targets from './targets';
+
 
 /**
  * difActions
@@ -79,6 +80,20 @@ const difActions = {
 	/*
 		keyedEach are almost workable.
 		still only reinsert logic (tag displacement) 
+
+		refactor :
+
+		lire items dans 'ordre
+
+			if(!dico[items[i].key])
+				=> new element => render and insert after last
+			else{
+				=> dif existing 
+				 if(first element after last is not the first element of newdev)
+					=> recycled element but not same place
+					=> displace them after last
+			}
+			last = newdev
 	 */
 
 	// keyedEach($tag, lexem, olexem, component, frag) {
@@ -92,6 +107,7 @@ const difActions = {
 
 	// 	let lastdeveloped, seenIndex = 0,
 	// 		i = 0,
+	// 		newFrag,
 	// 		key, olddeveloped, newdeveloped;
 
 	// 	for (let len = items.length, item; i < len; ++i) {
@@ -105,9 +121,12 @@ const difActions = {
 	// 		if (olddeveloped) {
 	// 			dif($tag, newdeveloped, olddeveloped, component);
 	// 			if (i !== olddeveloped.index)
-	// 				reinsert($tag, newdeveloped, lastChild(lastdeveloped)); // (displace tags after last developed)
+	// 				if (lastdeveloped)
+	// 					displaceAfter($tag, newdeveloped, lastdeveloped.lastChild); // (displace tags after last developed)
+	// 				else
+	// 					displaceBefore($tag, newdeveloped, $tag.firstChild);
 
-	// 			// reorder oldChildren by swapping (for catching notSeens at the end of ochildren)
+	// 				// reorder oldChildren by swapping (for catching notSeens at the end of ochildren)
 	// 			if (seenIndex !== olddeveloped.index) {
 	// 				const temp = oChildren[seenIndex];
 	// 				oChildren[seenIndex] = oChildren[olddeveloped.index];
@@ -116,11 +135,13 @@ const difActions = {
 	// 			seenIndex++;
 	// 		} else if (i < oChildren.length) {
 	// 			// render in fragment then insertBefore lastdeveloped.nextSibling
-	// 			const frag = document.createDocumentFragment();
-	// 			render(frag, newdeveloped, component);
-	// 			$tag.insertBefore(frag, lastChild(lastdeveloped).nextSibling);
+	// 			newFrag = document.createDocumentFragment();
+	// 			render(newFrag, newdeveloped, component);
+	// 			newdeveloped.lastChild = newFrag.lastChild;
+	// 			$tag.insertBefore(newFrag, lastdeveloped.lastChild.nextSibling);
 	// 		} else {
 	// 			render($tag, newdeveloped, component, frag);
+	// 			newdeveloped.lastChild = $tag.lastChild;
 	// 		}
 	// 		newDico[key] = lastdeveloped = newdeveloped;
 	// 		newdeveloped.index = i;
@@ -268,7 +289,7 @@ const difActions = {
 		if (olexem.args[0] !== newHTML) {
 			$tag.innerHTML = '';
 			$tag.appendChild(lexem.witness);
-			insertHTML(newHTML, $tag, lexem.witness);
+			domUtils.insertHTML(newHTML, $tag, lexem.witness);
 		}
 	},
 	execute($tag, lexem, olexem) {
