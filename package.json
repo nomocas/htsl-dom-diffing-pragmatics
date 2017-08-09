@@ -1,6 +1,6 @@
 {
   "name": "htsl-dom-diffing-pragmatics",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "DOM Diffing output engine for htsl-lexicon",
   "main": "dist/bundles/index.js",
   "module": "dist/bundles/index.mjs",
