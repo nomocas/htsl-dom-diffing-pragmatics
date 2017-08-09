@@ -34,7 +34,7 @@
   "license": "MIT",
   "dependencies": {
     "babelute": "^0.6.0",
-    "htsl-lexicon": "^0.2.3",
+    "htsl-lexicon": "^0.2.10",
     "nomocas-webutils": "^0.0.9"
   },
   "devDependencies": {
