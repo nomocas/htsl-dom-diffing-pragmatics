@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.2"></a>
+## [0.3.2](https://github.com/nomocas/htsl-dom-diffing-pragmatics/compare/v0.3.1...v0.3.2) (2017-08-09)
+
+
+### Bug Fixes
+
+* **dependency:** update nomocas-webutils to 0.0.8 to follow domUtils export ([7f39663](https://github.com/nomocas/htsl-dom-diffing-pragmatics/commit/7f39663))
+* **dom-utils:** fix usage and follow refactoring + update associated package dep ([0466770](https://github.com/nomocas/htsl-dom-diffing-pragmatics/commit/0466770))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://github.com/nomocas/htsl-dom-diffing-pragmatics/compare/v0.3.0...v0.3.1) (2017-07-08)
 
